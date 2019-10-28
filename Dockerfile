@@ -1,11 +1,12 @@
-FROM python:2.7.12
+FROM python:3.6.9-stretch
 
-LABEL maintainer "mats116 <mats.kazuki@gmail.com>"
+LABEL maintainer "tomohisa itaya <tomohisa.itaya@intimatemerger.com>"
 
 RUN apt-get update && \
-    apt-get install -y mecab=0.996-1.1 \
-                       libmecab-dev=0.996-1.1 \
+    apt-get install -y mecab=0.996-3.1 \
+                       libmecab-dev=0.996-3.1 \
+                       swig=3.0.10-1.1 \
                        mecab-ipadic-utf8 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
-    pip install mecab-python==0.996
+    pip install mecab-python3==0.996.2
